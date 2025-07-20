@@ -1,5 +1,8 @@
 //1. Write a program that uses if statement to find the minimum of three numbers.
-import java.util.*;
+import java.util.Scanner;
+
+import java.util.Arrays;
+
 
 public class MinimumOfThree
 {
