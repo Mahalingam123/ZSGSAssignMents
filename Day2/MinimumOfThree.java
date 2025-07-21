@@ -135,12 +135,18 @@ a)   R R R R
 
 //3. Write a program to do the following patterns using while loop?
 
+//Diamond pattern 
+
 class Pattern
 {
 	public static void main(String[]args)
 	{
 		
-		int size=5;
+		Scanner scan=new Scanner(System.in);
+		
+		System.out.println("Enter a size");
+		
+		int size=scan.nextInt();
 		
 		int i=1,a=0,cnt=1;
 		
@@ -148,18 +154,19 @@ class Pattern
 		{
 			int j=1,space=1;
 			
+			if(i>(size/2)+1)
+			{
+				a--;
+		
+			}
+			else{
+				a=i;
+			}
+			
 			while(space<=Math.abs(((size/2)+1)-i))
 			{
 				System.out.print(" ");
 				space++;
-			}
-			
-			if(i>(size/2)+1)
-			{
-				a--;
-			}
-			else{
-				a=i;
 			}
 			
 			while(j<=a)
@@ -173,7 +180,8 @@ class Pattern
 		}
 	}
 }
-//b
+//b w   Pattern
+ 
 
 
 
@@ -188,13 +196,7 @@ class PatternB
 		
 		while(i<=size)
 		{
-			int j=1,space=1;
-			
-			while(space<=Math.abs(((size/2)+1)-i))
-			{
-				System.out.print(" ");
-				space++;
-			}
+			int j=1;
 			
 			if(i>(size/2)+1)
 			{
@@ -1046,44 +1048,69 @@ class BinaryAddition{
 		
 		String num2=scan.nextLine();
 		
-		System.out.println( "Addition value ="+toBinary( binToDecimal(num1)+binToDecimal(num2)));
+		System.out.println( "Addition value = "+Add(num1,num2));
 		
 	}
 	
-	public static int binToDecimal(String s)
-	{
-		int cnt=0; int num=0;
-		for(int i=s.length()-1;i>=0;i--)
-		{
-			if(s.charAt(i)=='1')
-			{
-				num+=Math.pow(2,cnt);
-			}
-			
-			cnt++;
-		}
-		
-		return num;
-	}
-	
-	 public static String toBinary(int n)
-	 {
-       if(n==0)
-       {
-        return "0";
-       }
+	 public static String Add(String num1,String num2){
 
-      String result="";
+         int i=num1.length()-1;
 
-     while(n>0)
-	 {
-      result=(n%2)+result;
-       n/=2;	  
-	 }	 
-	 
-	 return result;
-	 
-	 }
+        int j=num2.length()-1;
+
+        int carry=0;
+
+        StringBuilder result=new StringBuilder();
+
+        int a,b;
+
+        int length=(i+1)>(j+1)?(i+1):(j+1);
+
+        while(length-->0)
+        {
+          
+          a=i>=0?num1.charAt(i)-48:0;
+          
+          b=j>=0?num2.charAt(j)-48:0;
+
+         int sum=a+b+carry;
+
+         if(sum==2)
+         {
+            carry=1;
+            
+            result.insert(0,"0");
+
+         }
+         else if(sum==3)
+         {
+               result.insert(0,"1");
+
+              carry =1;
+         }
+         
+         else{
+            carry=0;
+             result.insert(0,sum+"");
+
+         }
+
+         i--;
+         j--;
+
+        }
+        
+
+        if(carry==1)
+        {
+               result.insert(0,"1");
+
+               return result.toString();
+        }
+
+        return result.toString();
+
+    }
 }
 
 class ExcelSheetTitle
@@ -1199,12 +1226,19 @@ class Differnce{
 	}
 	public static char charDiff(String s, String t) {
         char A  []=s.toCharArray();
+		
         char B []=t.toCharArray();
+		
         Arrays.sort(A);
+		
         Arrays.sort(B);
+		
         for(int i=0;i<A.length;i++){
+			
             if(A[i]!=B[i]){
+				
                 return B[i];
+				
             }
         }
         return B[B.length-1];
