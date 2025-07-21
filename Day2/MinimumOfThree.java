@@ -150,7 +150,7 @@ class Pattern
 		
 		int i=1,a=0,cnt=1;
 		
-		while(i<=size)
+		do
 		{
 			int j=1,space=1;
 			
@@ -177,7 +177,7 @@ class Pattern
 			}
 			System.out.println();
 		i++;
-		}
+		}while(i<=size);
 	}
 }
 //b w   Pattern
