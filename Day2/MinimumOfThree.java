@@ -1301,32 +1301,66 @@ class AddString{
 
 	   String t=scan.nextLine();
 
-	   System.out.println("The Result = "+(toInt(s)+toInt(t)));
+	   System.out.println("The Result = "+addStrings(s,t));
 
 	}
 
-	public static int  toInt(String s)
-	{
-       int k=1;
-
-	   int result=0;
-
-      for(int i=s.length()-1;i>=0;i--)
-	  {
-       int temp=s.charAt(i)-48;
+	public static String addStrings(String num1, String num2) {
         
-	   result+=k*temp;
+        int a=0;
 
-	   k*=10;
-        
-	  }
+        int b=0;
 
-	  System.out.println(result);
+        int length=num1.length()>num2.length()?num1.length():num2.length();
 
-		return result; 
+        int i=num1.length()-1;
 
-	}
+        int j=num2.length()-1;
 
+        int carry=0;
+   
+        String result="";
+
+        while(length-->0)
+        {
+
+         a=i<0?0:num1.charAt(i)-48;
+
+         b=j<0?0:num2.charAt(j)-48;
+
+         int  sum=carry+a+b;
+
+         if(sum>9){
+          
+          int rem=sum%10;
+
+          sum/=10;
+
+          result=rem+result;
+
+          carry=sum;
+
+         }  
+         else{
+
+            carry=0;
+
+            result=sum+result;
+
+         }
+
+         i--;
+         j--;
+
+        }
+
+       if(carry>0)
+       {
+        result=carry+result;
+       }
+         
+return result;
+    }
 }
 
 
