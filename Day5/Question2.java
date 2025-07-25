@@ -1,9 +1,9 @@
 //2. Can we override private method, constructor, static method, 
 //final method? Illustrate with an example.
 
-public class Over {
+ class OverLoad {
 
-    Over(){
+    OverLoad(){
       System.out.println("Constructor");
     }
     
@@ -19,9 +19,9 @@ public class Over {
     }
 }
 
-class Child extends Over{
+class Child extends Question2{
 
-    Over()
+    OverLoad()
     {
         System.out.println("Helo from Child"); 
         /* error: invalid method declaration; return type required */

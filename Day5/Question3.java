@@ -5,7 +5,7 @@ calculateSalary() method based on their working type. */
 
 import java.util.Scanner;
 
-public class Employee
+class Employee
  {
     int empId;
     String empName;
