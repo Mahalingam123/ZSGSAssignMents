@@ -1,0 +1,15 @@
+Day-11 Assignment Questions:
+1. Write a Java program to read the contents of a text file and display it on the console.
+2. Write a Menu driven Java program a) to read content from the user
+and write it into another file and b) from the file to
+another file c) to modify the content of a file d) to search
+for a particular word in a file and display how many times it
+appears e) read the content(List of Electronic Products) of
+a .txt file and copy them to the .csv file.
+ Hi  how are you
+
+ Hi  how are you 
+
+
+
+Hi  how are you 
